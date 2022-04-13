@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrivenFormComponent implements OnInit {
 
-  public name = ""
-  public password = ""
+  public name = null
+  public password = null
   public ages = [12,13,14,15,17]
   public selectedAge = ''
   constructor() { }

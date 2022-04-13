@@ -1,1 +1,26 @@
-<p>reactive-form works!</p>
+<div class="no-style" style="margin-left: 4px">
+  <div class="container">
+    <h1>Hero Form</h1>
+    <form  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>
+          Name:
+        </label>
+        <input type="text" class="form-control" formControlName="name" required>
+        <span class="errorMessage" *ngIf="profileForm.controls['name'].invalid">Cần phải nhập name</span>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Age:
+        </label>
+        <input type="text" class="form-control" formControlName="age" required>
+        <span class="errorMessage" *ngIf="profileForm.controls['age'].invalid">Cần phải nhập age</span>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Submit</button>
+
+    </form>
+  </div>
+</div>
+
