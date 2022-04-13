@@ -1,0 +1,31 @@
+<h1 class="active">home works!</h1>
+<h3>{{ name | lowercase }} - {{ age | number:"1.1-2" | currency }}</h3>
+<!-- if  -->
+<h5 *ngIf="age >= 20" class="active">Hết trẻ con rồi</h5>
+<h5 *ngIf="age < 20">Vẫn còn được chơi</h5>
+
+<!-- ng-template  -->
+<span *ngIf="age >= 20 then condition1 else condition2"></span>
+<ng-template #condition1 class="active">Hết trẻ con rồi</ng-template>
+<ng-template #condition2>Vẫn còn được chơi</ng-template>
+<br />
+
+<!-- event  -->
+<button (click)="tangTuoi()">Tăng Tuổi</button>
+<p appBold>home works!</p>
+
+Danh sách mảng: <br />
+
+<div>
+  <!-- for  -->
+  <li *ngFor="let number of array">{{ number }}</li>
+</div>
+
+<div>
+  <select>
+    <option *ngFor="let number of array">{{ number }}</option>
+  </select>
+</div>
+
+<!-- formModel -->
+<input [(ngModel)]="name" type="text" placeholder="Nhập" />

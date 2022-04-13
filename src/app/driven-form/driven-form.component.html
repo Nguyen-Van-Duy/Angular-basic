@@ -1,0 +1,28 @@
+<div class="no-style" style="margin-left: 4px">
+  <div class="container">
+    <h1>Hero Form</h1>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+        <span class="error" *ngIf="name === ''">Cần phải nhập name</span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+        <span class="error" *ngIf="password === ''">Cần phải nhập password</span>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Tuổi</label>
+        <select id="age" (change)="HandleSelectedAge($event)">
+          <option *ngFor="let age of ages">{{age}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+
+    </form>
+  </div>
+</div>
