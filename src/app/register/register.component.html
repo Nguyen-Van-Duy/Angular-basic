@@ -1,0 +1,59 @@
+<div class="no-style" style="margin-left: 4px">
+  <div class="container">
+    <h1>{{number}}</h1>
+    <h1>Add data</h1>
+    {{formName.fullName.errors | json}}
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" formControlName="fullName" class="form-control" required>
+        <div *ngIf="formName.fullName.invalid && formName.fullName.touched">
+          <div *ngIf="formName.fullName.errors">
+            <span class="error" *ngIf="formName.fullName.errors.required">Name ko đc trống!</span>
+            <span class="error" *ngIf="formName.fullName.errors.minlength">Vui lòng nhập > 6!</span>
+            <span class="error" *ngIf="!formName.fullName.errors.minlength && formName.fullName.errors.pattern">ko nhạp chữ</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" class="form-control" formControlName="email" required>
+          <span class="errorMessage error">Cần phải nhập email</span>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="password">password:</label>
+        <input type="text" id="password" class="form-control" required>
+        <span class="errorMessage error">Cần phải nhập password</span>
+      </div>
+
+      <div class="form-group">
+        <label for="yearOfBirth">yearOfBirth:</label>
+        <input type="text" id="yearOfBirth" class="form-control" required>
+        <span class="errorMessage error">Cần phải nhập yearOfBirth</span>
+      </div>
+      <div class="form-group">
+        <label for="provinceName">provinceName:</label>
+        <input type="text" id="provinceName" class="form-control" required>
+        <span class="errorMessage error">Cần phải nhập provinceName</span>
+      </div>
+      <div class="form-group">
+        <label for="specificAddress">specificAddress:</label>
+        <input type="text" id="specificAddress" class="form-control" required>
+        <span class="errorMessage error">Cần phải nhập specificAddress</span>
+      </div>
+      <div class="form-group">
+        <label for="phone">phone:</label>
+        <input type="text" id="phone" class="form-control" required>
+        <span class="errorMessage error">Cần phải nhập phone</span>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+
+  </div>
+</div>
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../Services/common.service';
+import { ServerHttpService } from '../Services/server-http.service';
 
 @Component({
   selector: 'app-about',
@@ -9,12 +10,17 @@ import { CommonService } from '../Services/common.service';
 export class AboutComponent implements OnInit {
 
   public age
+  data: any
 
-  constructor(private common: CommonService) {
+  constructor(private common: CommonService, private subject: ServerHttpService) {
     this.age = common.age
   }
 
   ngOnInit(): void {
+    this.subject.getList().subscribe(res => {
+      console.log(res)
+      this.data = res
+    })
   }
   public tangTuoi() {
     this.common.age++

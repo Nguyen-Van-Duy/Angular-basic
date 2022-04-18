@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,17 +9,25 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
 
-  public profileForm = new FormGroup({
+  name="duy123@"
+
+  profileForm = new FormGroup({
     name: new FormControl(null),
     age: new FormControl(null),
   });
-  constructor() { }
+  constructor(private Router: Router) { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
+    console.log("onChange")
   }
 
-  public onSubmit() {
+  ngOnInit(): void {
+    console.log("onInit")
+  }
+
+  onSubmit() {
     console.log(this.profileForm.controls['name'].value)
+    this.Router.navigateByUrl('/')
   }
 
 }

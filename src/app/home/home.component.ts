@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../Services/common.service';
+import { ServerHttpService } from '../Services/server-http.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,20 @@ export class HomeComponent implements OnInit {
 
   public name = "Duy"
   public age
-  public array = [1, 2, 3, 4, 5]
+  public array
 
-  constructor(private common: CommonService) {
+
+
+   constructor(private common: CommonService, private serverService: ServerHttpService){
     this.age = common.age
-   }
+    this.array = serverService.array2
+  }
 
   ngOnInit(): void {
+    this.serverService.getList().subscribe(res=>{
+      console.log(res)
+    })
+    console.log(this.serverService.array2)
   }
 
   public tangTuoi() {

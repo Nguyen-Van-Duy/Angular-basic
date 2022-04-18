@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,12 @@ import { BoldDirective } from './Directives/bold.directive';
 import { DrivenFormComponent } from './driven-form/driven-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {ServerHttpService} from "./Services/server-http.service";
+import { RegisterComponent } from './register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PrimeNGComponent } from './prime-ng/prime-ng.component'
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -20,15 +26,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     BoldDirective,
     DrivenFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    RegisterComponent,
+    PrimeNGComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [ServerHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
