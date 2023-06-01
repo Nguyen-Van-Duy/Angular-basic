@@ -13,10 +13,19 @@ export class AppComponent {
 
 
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+  date7:any
 
+  minDate:any
+
+  maxDate:any
+
+  ngOnInit() {
+    this.minDate = new Date();
+    this.minDate.setMonth(-1);
+    // this.minDate.setFullYear(prevYear);
+    this.maxDate = new Date();
+    this.maxDate.setMonth(7);
+    // this.maxDate.setFullYear(nextYear);
   }
 
 }

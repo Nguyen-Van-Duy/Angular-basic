@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 // };
 export class ServerHttpService {
   array2 = [2,3,4,5,65,6,7]
-  url = 'https://dbkhaibaoyte.herokuapp.com/user'
+  // url = 'https://dbkhaibaoyte.herokuapp.com/user'
+  url = "https://jsonplaceholder.typicode.com/users"
 
   constructor(private http: HttpClient) { }
 

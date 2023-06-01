@@ -8,17 +8,19 @@
       <th scope="col">id</th>
       <th scope="col">fullName</th>
       <th scope="col">email</th>
-      <th scope="col">yearOfBirth</th>
-      <th scope="col">phone</th>
+      <th scope="col">name</th>
+      <th scope="col">city</th>
+      <th scope="col">street</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of data">
       <th scope="row">{{item.id}}</th>
-      <th scope="row">{{item.fullName}}</th>
+      <th scope="row">{{item.username}}</th>
       <th scope="row">{{item.email}}</th>
-      <th scope="row">{{item.yearOfBirth}}</th>
-      <th scope="row">{{item.phone}}</th>
+      <th scope="row">{{item.name}}</th>
+      <th scope="row">{{item.address.city}}</th>
+      <th scope="row">{{item.address.street}}</th>
 
     </tr>
   </tbody>

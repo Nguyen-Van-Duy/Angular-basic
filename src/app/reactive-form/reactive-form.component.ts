@@ -30,4 +30,9 @@ export class ReactiveFormComponent implements OnInit {
     this.Router.navigateByUrl('/')
   }
 
+  handleClick() {
+    console.log("profileForm:", this.profileForm);
+
+  }
+
 }

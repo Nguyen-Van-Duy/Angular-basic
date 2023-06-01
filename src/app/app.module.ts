@@ -17,6 +17,9 @@ import { RegisterComponent } from './register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrimeNGComponent } from './prime-ng/prime-ng.component'
 import {ButtonModule} from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
+import { ConvertNumberPipe } from './convert-number.pipe';
+import { ListProductComponent } from './list-product/list-product.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import {ButtonModule} from 'primeng/button';
     ReactiveFormComponent,
     RegisterComponent,
     PrimeNGComponent,
+    ConvertNumberPipe,
+    ListProductComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,8 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    CalendarModule,
   ],
   providers: [ServerHttpService],
   bootstrap: [AppComponent]
