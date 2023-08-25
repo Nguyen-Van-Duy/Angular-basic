@@ -1,0 +1,3 @@
+<li class="list-product__item" *ngFor="let product of listProduct; index as i" (click)="handleDeleteProduct(product)">
+  <img [src]="product.url" />
+</li>

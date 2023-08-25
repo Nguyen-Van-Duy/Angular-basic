@@ -18,8 +18,9 @@ export class RegisterComponent implements OnInit {
       console.log("22222222222")
       as = setInterval(() => {
         this.number++
-        if(this.number === 5) {
-          clearInterval(as)
+        if(this.number === 60) {
+          this.number = 0
+          // clearInterval(as)
         }
       }, 1000)
     }

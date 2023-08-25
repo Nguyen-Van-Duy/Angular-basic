@@ -20,6 +20,8 @@ import {ButtonModule} from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { ConvertNumberPipe } from './convert-number.pipe';
 import { ListProductComponent } from './list-product/list-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './product-list/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ListProductComponent } from './list-product/list-product.component';
     PrimeNGComponent,
     ConvertNumberPipe,
     ListProductComponent,
+    ProductListComponent,
+    ProductDetailComponent,
 
   ],
   imports: [

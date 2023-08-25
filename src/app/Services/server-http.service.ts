@@ -13,11 +13,21 @@ export class ServerHttpService {
   array2 = [2,3,4,5,65,6,7]
   // url = 'https://dbkhaibaoyte.herokuapp.com/user'
   url = "https://jsonplaceholder.typicode.com/users"
+  url2 = "https://jsonplaceholder.typicode.com/photos"
+
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  });
 
   constructor(private http: HttpClient) { }
 
   getList():Observable<any> {
     return this.http.get<any>(this.url)
+  }
+
+  getListImage():Observable<any> {
+    return this.http.get<any>(this.url2)
   }
 
   deleteList():Observable<any> {

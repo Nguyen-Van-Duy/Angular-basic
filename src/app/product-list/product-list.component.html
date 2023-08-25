@@ -1,0 +1,3 @@
+<ul *ngIf="listProduct.length" class="list-product">
+  <app-product-detail [listProduct]="listProduct" (deleteProduct)="deleteProduct($event)"></app-product-detail>
+</ul>

@@ -7,15 +7,21 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PrimeNGComponent } from './prime-ng/prime-ng.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { RegisterComponent } from './register/register.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
-const routes: Routes = [{
-  path: '', component: HomeComponent},
+const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
+  {path: 'about', component: AboutComponent,
+  children: [
+    {path: 'list', component: ReactiveFormComponent},
+    {path: 'register', component: RegisterComponent},
+  ]},
   {path: 'driven-form', component: DrivenFormComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'reactive-form', component: ReactiveFormComponent},
   {path: 'prime-ng', component: PrimeNGComponent},
+  {path: 'product', component: ProductListComponent},
   {path: '**', component: PageNotFoundComponent},
 
 ];
