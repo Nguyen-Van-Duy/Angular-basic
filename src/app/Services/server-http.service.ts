@@ -26,6 +26,10 @@ export class ServerHttpService {
     return this.http.get<any>(this.url)
   }
 
+  getListAddress():Observable<any> {
+    return this.http.get<any>("https://provinces.open-api.vn/api/?depth=3")
+  }
+
   getListImage():Observable<any> {
     return this.http.get<any>(this.url2)
   }

@@ -1,12 +1,20 @@
-<a [routerLink]="['/home']" routerLinkActive="router-link-active link-active">Home</a>&nbsp;
-<a [routerLink]="['/about']" routerLinkActive="router-link-active link-active">About</a>&nbsp;
-<a [routerLink]="['/driven-form']" routerLinkActive="router-link-active link-active" >Driven Form</a>&nbsp;
-<a [routerLink]="['/reactive-form']" routerLinkActive="router-link-active link-active" >Reactive Form</a>&nbsp;
-<a [routerLink]="['/register']" routerLinkActive="router-link-active link-active">Register</a>&nbsp;
-<a [routerLink]="['about/list']" routerLinkActive="router-link-active link-active">About List</a>&nbsp;
-<a [routerLink]="['/prime-ng']" routerLinkActive="router-link-active link-active">PrimeNg</a>&nbsp;
-<a [routerLink]="['/product']" routerLinkActive="router-link-active link-active">Product</a>
-<router-outlet></router-outlet>
+<div class="header">
+  <div class="d-flex justify-content-center align-items-center">
+    <a [routerLink]="['/home']" routerLinkActive="router-link-active link-active">Home</a>&nbsp;
+    <a [routerLink]="['/about']" routerLinkActive="router-link-active link-active">About</a>&nbsp;
+    <a [routerLink]="['/driven-form']" routerLinkActive="router-link-active link-active" >Driven Form</a>&nbsp;
+    <a [routerLink]="['/reactive-form']" routerLinkActive="router-link-active link-active" >Reactive Form</a>&nbsp;
+    <a [routerLink]="['/register']" routerLinkActive="router-link-active link-active">Register</a>&nbsp;
+    <a [routerLink]="['about/list']" routerLinkActive="router-link-active link-active">About List</a>&nbsp;
+    <a [routerLink]="['/prime-ng']" routerLinkActive="router-link-active link-active">PrimeNg</a>&nbsp;
+    <a [routerLink]="['/product']" routerLinkActive="router-link-active link-active">Product</a>&nbsp;
+    <a [routerLink]="['/rxjs']" routerLinkActive="router-link-active link-active">Rxjs</a>&nbsp;
+    <!-- <a [routerLink]="['/in-app-form']" routerLinkActive="router-link-active link-active">in-app-form</a> -->
+  </div>
+</div>
+<div class="container bg-light text-dark">
+  <router-outlet></router-outlet>
+</div>
 <!-- <div>
 
 <p-calendar

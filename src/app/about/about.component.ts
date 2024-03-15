@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../Services/common.service';
 import { ServerHttpService } from '../Services/server-http.service';
+import { MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
 
@@ -25,6 +26,10 @@ export class AboutComponent implements OnInit {
   public tangTuoi() {
     this.common.age++
     this.age = this.common.age
+  }
+
+  handleClick() {
+    alert("hi")
   }
 
 }

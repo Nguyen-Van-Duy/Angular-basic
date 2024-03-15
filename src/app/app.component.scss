@@ -1,3 +1,16 @@
 .link-active {
   color: red;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  height: 80px;
+  margin-bottom: 20px;
+  a {
+    padding: 10px;
+    font-size: 18px;
+  }
+}

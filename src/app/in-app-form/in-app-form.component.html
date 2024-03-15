@@ -1,0 +1,215 @@
+
+<div mat-dialog-title>
+  <mat-toolbar role="toolbar" class="form-header-title">
+    <span> Test </span>
+  </mat-toolbar>
+</div>
+<mat-dialog-content>
+    <div class="in-app-container">
+    <div class="in-app-box">
+      <form class="in-app-form" [formGroup]="inAppForm" (ngSubmit)="onSubmit()">
+
+        <div class="app-form-group">
+          <label for="name">Tên Item In-app message</label>
+          <input class="form-input" type="text" id="name"placeholder="Nhập tên In-app message" formControlName="name">
+        </div>
+
+        <div class="app-form-group">
+          <label for="message">Nội dung In-app message</label>
+          <ng-select #agesSelect [items]="listMessage"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="message"
+                    placeholder="Chọn nội dung In-app message"
+                    formControlName="message">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="blackList">Lựa chọn Blacklist</label>
+          <ng-select [items]="listBlackList"
+                    [selectOnTab]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="blackList"
+                    placeholder="Lựa chọn Blacklist"
+                    formControlName="blackList">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="condition">Điều kiện thực hiện hành động</label>
+          <ng-select #agesSelect [items]="listCondition"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="condition"
+                    placeholder="Thêm điều kiện"
+                    formControlName="condition">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="page">Page hiển thị</label>
+          <ng-select
+              [items]="listPage"
+              [multiple]="true"
+              bindLabel="name"
+              groupBy="gender"
+              [selectableGroup]="true"
+              [closeOnSelect]="false"
+              placeholder="Lựa chọn page"
+              bindValue="id"
+              labelForId="page"
+              formControlName="page">
+              <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                  <input id="item-{{index}}" type="checkbox" [checked]="item$.selected"/> {{item.gender | uppercase}}
+              </ng-template>
+              <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                  <input id="item-{{index}}" type="checkbox" [checked]="item$.selected"/> {{item.name}}
+              </ng-template>
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="expiry">Expiry</label>
+          <ng-select #agesSelect [items]="listExpiry"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="message"
+                    placeholder="Chọn nội dung In-app message"
+                    formControlName="expiry">
+          </ng-select>
+        </div>
+
+        <div class="form-date">
+          <div class="app-form-group">
+              <label for="dateStart">Từ ngày</label>
+              <input class="form-input" type="date" id="dateStart" formControlName="dateStart" (change)="changeDateStart($event)">
+          </div>
+          <div class="app-form-group">
+              <label for="dateEnd">Dến ngày</label>
+              <input class="form-input" type="date" id="dateEnd" formControlName="dateEnd" [min]="currentDate">
+          </div>
+        </div>
+
+        <div class="app-form-group">
+          <label for="max_impressions">Số lần hiển thị tối đa</label>
+          <span><input class="form-input input-delay" type="number" min="0" id="max_impressions" formControlName="max_impressions"> với mỗi STB</span>
+        </div>
+
+        <div class="app-form-group">
+          <label for="min_impressions">Thời gian tối thiểu giữa 2 lần hiển thị</label>
+          <div class="form-date">
+            <input class="form-input input-impressions" min="0" type="number" id="min_impressions" formControlName="min_impressions">
+            <ng-select #agesSelect [items]="listTime"
+                      [selectOnTab]="false"
+                      [clearable]="false"
+                      bindValue="value"
+                      clearAllText="Clear"
+                      labelForId="message"
+                      placeholder="Chọn Time"
+                      formControlName="impressions_time">
+            </ng-select>
+          </div>
+        </div>
+
+        <div class="app-form-group">
+          <label for="delay">Delay display</label>
+          <span><input class="form-input input-delay" min="0" type="number" id="delay" formControlName="delay"> giây</span>
+        </div>
+
+        <div class="app-form-group">
+          <label for="frequencyCapping">Frequency Capping</label>
+          <div class="group-checkbox"><input class="input-checkbox" type="checkbox" id="frequencyCapping" formControlName="frequencyCapping">By pass</div>
+        </div>
+
+        <div class="app-form-group">
+          <label for="priority">Độ ưu tiên</label>
+          <ng-select #agesSelect [items]="listPriority"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="priority"
+                    placeholder="Chọn độ ưu tiên"
+                    formControlName="priority">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="device">Device</label>
+          <ng-select #agesSelect [items]="listDevice"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    (change)="changeDevice($event)"
+                    clearAllText="Clear"
+                    labelForId="device"
+                    placeholder="Chọn device"
+                    formControlName="device">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="deviceOS">Device OS</label>
+          <ng-select #agesSelect [items]="listDeviceOS"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    [disabled]="true"
+                    (change)="changeDeviceOS($event)"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="deviceOS"
+                    placeholder="Chọn device OS"
+                    formControlName="deviceOS">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="versionOS">OS version</label>
+          <ng-select #agesSelect [items]="listVersionOS"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    (change)="changeVersionOS($event)"
+                    labelForId="versionOS"
+                    placeholder="Chọn os version"
+                    formControlName="versionOS">
+          </ng-select>
+        </div>
+
+        <div class="app-form-group">
+          <label for="versionApp">App version</label>
+          <ng-select #agesSelect [items]="listVersionApp"
+                    [selectOnTab]="false"
+                    [clearable]="false"
+                    bindValue="value"
+                    clearAllText="Clear"
+                    labelForId="versionApp"
+                    placeholder="Chọn app version"
+                    formControlName="versionApp">
+          </ng-select>
+        </div>
+
+        <div class="app-form-button">
+          <button class="btn-delete" type="reset">Xoá</button>
+          <span class="app-group-btn">
+            <a href="">Thoát</a>
+            <button class="btn-submit" type="submit">Luu</button>
+          </span>
+        </div>
+      </form>
+    </div>
+    </div>
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-light btn-sm" (click)="dialogRef.close({ updated: true, name: 'Duy' });">
+    Đóng</button>
+</mat-dialog-actions>

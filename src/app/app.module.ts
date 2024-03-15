@@ -22,11 +22,20 @@ import { ConvertNumberPipe } from './convert-number.pipe';
 import { ListProductComponent } from './list-product/list-product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-list/product-detail/product-detail.component';
-
+import { MatButtonModule} from '@angular/material/button';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import { InAppFormComponent } from './in-app-form/in-app-form.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HomeModule } from './home/home.module';
+import { HomeRoutingModule } from './home/home-routing.module';
+import { RxjsModule } from './rxjs/rxjs.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     AboutComponent,
     PageNotFoundComponent,
     BoldDirective,
@@ -38,17 +47,26 @@ import { ProductDetailComponent } from './product-list/product-detail/product-de
     ListProductComponent,
     ProductListComponent,
     ProductDetailComponent,
-
+    InAppFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     ButtonModule,
     CalendarModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+    MatDialogModule,
+    MatToolbarModule,
+    HomeModule,
+    HomeRoutingModule,
+    RxjsModule
   ],
   providers: [ServerHttpService],
   bootstrap: [AppComponent]

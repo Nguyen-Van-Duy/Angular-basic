@@ -3,23 +3,16 @@ import { CommonService } from '../Services/common.service';
 import { ServerHttpService } from '../Services/server-http.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InAppFormComponent } from '../in-app-form/in-app-form.component';
+import { FormEventComponent } from './form-event/form-event.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-rxjs',
+  templateUrl: './rxjs.component.html',
+  styleUrls: ['./rxjs.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class RxjsComponent implements OnInit {
 
-  public name = "Duy"
-  public age
-  public array
-
-
-
-   constructor(private common: CommonService, private serverService: ServerHttpService, private dialog: MatDialog){
-    this.age = common.age
-    this.array = serverService.array2
+  constructor(private common: CommonService, private serverService: ServerHttpService, private dialog: MatDialog){
   }
 
   ngOnInit(): void {
@@ -29,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   showModal() {
-    let dialogEditRef = this.dialog.open(InAppFormComponent, {
+    let dialogEditRef = this.dialog.open(FormEventComponent, {
       disableClose: false,
       autoFocus: true,
       width: "800px",
@@ -44,16 +37,6 @@ export class HomeComponent implements OnInit {
           console.log(result);
         }
       });
-    // console.log(this.serverService.array2)
-  }
-
-  public tangTuoi() {
-    this.common.age++
-    this.age = this.common.age
-    if(this.age === 20) {
-      this.name = "ahhhhhh"
-      this.array.push(this.age)
-    }
   }
 
 }
