@@ -1,2 +1,8 @@
 <h1 class="active">home works!</h1>
+<input type="text" [formControl]="search" placeholder="Nhập value" />
+<form [formGroup]="formFilter">
+  <input type="text" formControlName="name" placeholder="Nhập value" (ngModelChange)="handleChange($event)" />
+  <pre *ngIf="formFilter.controls['name'].touched && formFilter.controls['name'].invalid">{{formFilter.controls['name'].errors | json}}</pre>
+  <input type="number" formControlName="age" placeholder="Nhập value" />
+</form>
 <button mat-raised-button color="primary" (click)="showModal()">Show Form Event</button>
