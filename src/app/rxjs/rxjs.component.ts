@@ -4,7 +4,7 @@ import { ServerHttpService } from '../Services/server-http.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InAppFormComponent } from '../in-app-form/in-app-form.component';
 import { FormEventComponent } from './form-event/form-event.component';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, debounce, debounceTime, delay, distinctUntilChanged, map, startWith } from 'rxjs';
 
 @Component({
@@ -21,8 +21,16 @@ export class RxjsComponent implements OnInit {
   constructor(private common: CommonService, private serverService: ServerHttpService, private dialog: MatDialog, private fb: FormBuilder){
     this.formFilter = this.fb.group({
       name: ["", Validators.required],
-      age: ["", Validators.required]
+      age: ["", Validators.required],
+      phone: ["", Validators.required]
     })
+  }
+
+  changeInput(e: any) {
+    // console.log(e.target.value);
+    this.formFilter.patchValue({...this.formFilter.value, sdt: e.target.value})
+    console.log(this.formFilter.value);
+
   }
 
   ngOnInit(): void {

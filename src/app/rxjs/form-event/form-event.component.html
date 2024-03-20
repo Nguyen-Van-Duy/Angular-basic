@@ -1,1 +1,9 @@
 <h1>Hihi</h1>
+<!-- <input type="text" #sdt [ngModel]="name" (ngModelChange)="changeValue($event)" placeholder="Nhập số điện thoại" /> -->
+<input
+  type="text"
+  [value]="value"
+  placeholder="Nhập số điện thoại"
+  [disabled]="disabled"
+  (input)="updateValue($event)"
+/>

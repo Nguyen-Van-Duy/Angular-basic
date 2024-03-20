@@ -4,5 +4,9 @@
   <input type="text" formControlName="name" placeholder="Nhập value" (ngModelChange)="handleChange($event)" />
   <pre *ngIf="formFilter.controls['name'].touched && formFilter.controls['name'].invalid">{{formFilter.controls['name'].errors | json}}</pre>
   <input type="number" formControlName="age" placeholder="Nhập value" />
+  <!-- <app-form-event (change)="changeInput($event)"></app-form-event> -->
+  <app-form-event formControlName="phone"></app-form-event>
+
+  {{formFilter.value | json}}
 </form>
 <button mat-raised-button color="primary" (click)="showModal()">Show Form Event</button>
